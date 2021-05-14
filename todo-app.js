@@ -148,14 +148,8 @@
 
             let index = taskArray.indexOf(obj);
 
-            //бежим по массиву и находим соответствующий объект и меняем его на объект с done : true
-            taskArray.forEach(item => {
-              //ну и собственно самый пиз**ц как по мне xD
-              if(item.id === obj.id) {
-                taskArray.splice(index, 1, obj);
-                localStorage.setItem(key, JSON.stringify(taskArray));
-              }
-            });
+            taskArray.splice(index, 1, obj);
+            localStorage.setItem(key, JSON.stringify(taskArray));
 
           });
 
@@ -191,7 +185,6 @@
             //отменяем стандартное поведение
             e.preventDefault();
 
-            // хер знает для чего???)) Но если убрать будет плохо, не понятно как работает))
             if(!todoItemForm.input.value) {
               return;
             }
@@ -224,14 +217,8 @@
 
               let index = taskArray.indexOf(newData);
 
-              //бежим по массиву и находим соответствующий объект и меняем его на объект с done : true
-              taskArray.forEach(item => {
-                //ну и собственно самый пиз**ц как по мне xD
-                if(item.id === newData.id) {
-                  taskArray.splice(index, 1, newData);
-                  localStorage.setItem(key, JSON.stringify(taskArray));
-                }
-              });
+              taskArray.splice(index, 1, newData);
+              localStorage.setItem(key, JSON.stringify(taskArray));
 
             });
             todoItem.deleteButton.addEventListener('click', function() {
@@ -240,7 +227,6 @@
 
                 todoItem.item.remove();
 
-                // бежим по массиву и находим соответствующий объект и меняем его на объект с done : true
                 taskArray.splice(index, 1)
                 localStorage.setItem(key, JSON.stringify(taskArray))
 
